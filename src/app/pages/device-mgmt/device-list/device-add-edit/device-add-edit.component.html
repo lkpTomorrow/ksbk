@@ -1,0 +1,68 @@
+<nz-modal [nzVisible]="true"
+          nzTitle="{{modalTitle}}"
+          (nzOnCancel)="handleCancel()"
+          (nzOnOk)="handleOk()">
+  <div class="modal-container search-contanier">
+    <!--设备名称 start-->
+    <div nz-row class="ks-item">
+      <div nz-col [nzSpan]="5" class="ks-label">
+        设备名称：
+      </div>
+      <div nz-col [nzSpan]="18" class="ks-form">
+        <input nz-input placeholder="请输入" [(ngModel)]="deviceName" />
+      </div>
+    </div>
+    <!--设备名称 end-->
+    <!--设备编号 start-->
+    <div nz-row class="ks-item">
+      <div nz-col [nzSpan]="5" class="ks-label">
+        设备编号：
+      </div>
+      <div nz-col [nzSpan]="18" class="ks-form">
+        <input nz-input placeholder="请输入" [(ngModel)]="deviceCode" />
+      </div>
+    </div>
+    <!--设备编号 end-->
+    <!--设备型号 start-->
+      <div nz-row class="ks-item">
+        <div nz-col [nzSpan]="5" class="ks-label text-overflow">设备型号：</div>
+        <div nz-col [nzSpan]="18" class="ks-form">
+          <nz-cascader [nzOptions]="deviceTypes" [(ngModel)]="selectedDeviceType"
+                       [nzPlaceHolder]="'请选择'"
+                       (ngModelChange)="deviceTypeChange($event)">
+          </nz-cascader>
+        </div>
+      </div>
+    <!--设备型号 end-->
+    <!--在线状态 start-->
+      <div nz-row class="ks-item">
+        <div nz-col [nzSpan]="5" class="ks-label">在线状态：</div>
+        <div nz-col [nzSpan]="18" class="ks-form">
+          <nz-select style="width: 100%;" [(ngModel)]="selectedOnlineStatus"
+                     nzAllowClear nzPlaceHolder="请选择">
+            <nz-option *ngFor="let item of onlineStatus"
+                       [nzValue]="item.value" [nzLabel]="item.name"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+    <!--在线状态 end-->
+    <!--开始日期 start-->
+      <div nz-row class="ks-item">
+        <div nz-col [nzSpan]="5" class="ks-label text-overflow">开始日期：</div>
+        <div nz-col [nzSpan]="18" class="ks-form">
+          <nz-date-picker [(ngModel)]="startDate"
+                          (ngModelChange)="onChange($event)"></nz-date-picker>
+        </div>
+      </div>
+    <!--开始日期 end-->
+    <!--结束日期 start-->
+      <div nz-row class="ks-item">
+        <div nz-col [nzSpan]="5" class="ks-label text-overflow">结束日期：</div>
+        <div nz-col [nzSpan]="18" class="ks-form">
+          <nz-date-picker [(ngModel)]="endDate"
+                          (ngModelChange)="onChange($event)"></nz-date-picker>
+        </div>
+      </div>
+    <!--结束日期 end-->
+  </div>
+</nz-modal>

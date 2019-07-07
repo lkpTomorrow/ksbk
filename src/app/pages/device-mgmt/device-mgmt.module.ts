@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {NgZorroAntdModule} from "ng-zorro-antd";
 import {NgaModule} from "../../theme/nga.module";
 import { KsTestComponent } from './ks-test/ks-test.component';
+import { DeviceAddEditComponent } from './device-list/device-add-edit/device-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { KsTestComponent } from './ks-test/ks-test.component';
     DeviceListComponent,
     OverViewComponent,
     AlarmQueryComponent,
-    KsTestComponent],
+    KsTestComponent,
+    DeviceAddEditComponent],
   imports: [
     CommonModule,
     DeviceMgmtRoutingModule,

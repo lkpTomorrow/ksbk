@@ -30,3 +30,57 @@ html,body{
 ::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.1);
 }
+
+
+/*公共样式 start*/
+ .search-contanier{
+  margin-top:24px;
+  padding: 24px 24px 12px 12px;
+  background: #ffffff;
+  border-radius:4px;
+  box-shadow: 1px 1px 1px 1px #f4e1ff;
+  .ks-item  {
+    margin-bottom: 12px;
+    .ks-label{
+      height: 32px;
+      line-height: 32px;
+      text-align: right;
+
+    }
+    .ks-form{
+      // 日期
+      .ant-calendar-picker{
+        // 不用important的话，单个的日期组件没问题；但是联动日期组件，有行内样式，所以不生效；
+        width: 100% !important;
+      }
+      // 级联选择框
+      .ant-cascader-picker{
+        width: 100%;
+      }
+    }
+  }
+  .ks-operation{
+    margin-left: 10px;
+    .search-btn{
+
+    }
+    .reset-btn{
+      margin-left: 4px;
+    }
+  }
+}
+
+// table 样式
+ .table-container{
+  margin-top: 20px;
+  background: #FFFFFF;
+  border-radius:4px;
+  box-shadow: 1px 1px 1px 1px #f4e1ff;
+  padding: 24px;
+
+  .page-size{
+    margin-top: 10px;
+    text-align: right;
+  }
+}
+/*公共样式 end*/

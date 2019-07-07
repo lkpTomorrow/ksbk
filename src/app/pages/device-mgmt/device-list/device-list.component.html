@@ -50,9 +50,9 @@
         <div nz-row class="ks-item">
           <div nz-col [nzSpan]="6" class="ks-label text-overflow">在线状态：</div>
           <div nz-col [nzSpan]="18" class="ks-form">
-            <nz-select style="width: 100%;" [(ngModel)]="selectedOnLineStatus"
+            <nz-select style="width: 100%;" [(ngModel)]="selectedOnlineStatus"
                        nzAllowClear nzPlaceHolder="请选择">
-              <nz-option *ngFor="let item of onLineStatus"
+              <nz-option *ngFor="let item of onlineStatus"
                          [nzValue]="item.value" [nzLabel]="item.name"></nz-option>
             </nz-select>
           </div>
@@ -64,7 +64,7 @@
         <div nz-row class="ks-item">
           <div nz-col [nzSpan]="6" class="ks-label text-overflow">开始日期：</div>
           <div nz-col [nzSpan]="18" class="ks-form">
-            <nz-date-picker [(ngModel)]="StartDate"
+            <nz-date-picker [(ngModel)]="startDate"
                             (ngModelChange)="onChange($event)"></nz-date-picker>
           </div>
         </div>
@@ -122,9 +122,9 @@
         <td>{{ data.age }}</td>
         <td>{{ data.address }}</td>
         <td>
-          <a>编辑 </a>
+          <a (click)="edit(data)">编辑 </a>
           <nz-divider nzType="vertical"></nz-divider>
-          <a>删除</a>
+          <a (click)="delete(data)">删除</a>
         </td>
       </tr>
       </tbody>
@@ -146,4 +146,10 @@
   </div>
 
 </div>
+
+<!--新增和编辑设备-->
+<app-device-add-edit *ngIf="deviceAddEditFlag"
+                      (onAddEditCancel)="addEditCancel($event)"
+                       [addEditItem]="addEditItem"
+></app-device-add-edit>
 
