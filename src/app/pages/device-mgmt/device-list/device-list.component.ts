@@ -97,17 +97,67 @@ export class DeviceListComponent implements OnInit {
    */
   search(isFirstPage=false){
     if(isFirstPage){
-
+      this.ksPage=1;
+      this.ksSize=10;
     }
     let params={
-
+      page:this.ksPage||1,
+      size:this.ksSize||10,
     };
+    console.log("search函数的参数：",params);
   }
 
   /**
    * 重置函数
    */
   reset(){
+    // 置空搜索条件
 
   }
+
+
+  /**
+   * table的mock数据
+   */
+  listOfData = [
+    {
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park'
+    },
+    {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park'
+    },
+    {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park'
+    }
+  ];
+
+
+  /***
+   * 分页数据
+   */
+  ksTotal=50;
+  ksPage=1;
+  ksSize=10;
+  // 页数改变
+  pageChange(e){
+    console.log('页数pageChange:',e);
+    this.ksPage=e;
+    this.search();
+  }
+  // size改变
+  sizeChange(e){
+    console.log('大小sizeChange:',e);
+    this.ksSize=e;
+    this.search();
+  }
+
 }

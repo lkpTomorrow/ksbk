@@ -93,5 +93,19 @@
     }
   }
 }
+
+// table 样式
+:host ::ng-deep .table-container{
+  margin-top: 20px;
+  background: #FFFFFF;
+  border-radius:4px;
+  box-shadow: 1px 1px 1px 1px #f4e1ff;
+  padding: 24px;
+
+  .page-size{
+    margin-top: 10px;
+    text-align: right;
+  }
+}
  /*公共样式 end*/
 

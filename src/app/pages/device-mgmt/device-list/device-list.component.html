@@ -103,7 +103,46 @@
     </div>
   </div>
   <div class="table-container">
+    <div class="table-operation-box">
 
+    </div>
+    <nz-table #basicTable [nzData]="listOfData"
+              [nzShowPagination]="false">
+      <thead>
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>地址</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.name }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.address }}</td>
+        <td>
+          <a>编辑 </a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>删除</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+    <div class="page-size">
+      <nz-pagination
+        [(nzPageIndex)]="ksPage"
+        [nzPageSize]="ksSize"
+
+        [nzTotal]="ksTotal"
+
+        nzShowSizeChanger
+        nzShowQuickJumper
+
+        (nzPageIndexChange)="pageChange($event)"
+        (nzPageSizeChange)="sizeChange($event)"
+      ></nz-pagination>
+    </div>
   </div>
 
 </div>
