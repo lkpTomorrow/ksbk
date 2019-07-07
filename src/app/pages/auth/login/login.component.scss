@@ -1,0 +1,43 @@
+/*自己的样式*/
+.login-container{
+  height: 100%;
+}
+.login{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  height: 80px;
+  background: #cbffa2;
+  flex-shrink:0;
+}
+.content{
+  flex: 1;
+  background: #ffc6b9;
+  /*form表单水平垂直居中*/
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer{
+  height: 105px;
+
+  background: #a7a8ff;
+  flex-shrink:0;
+  padding-top: 24px;
+  text-align: center;
+}
+
+/*组件默认的样式*/
+.login-form {
+  max-width: 300px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}

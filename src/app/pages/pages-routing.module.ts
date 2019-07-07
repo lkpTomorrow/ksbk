@@ -3,9 +3,11 @@ import {Routes, RouterModule} from '@angular/router';
 import {PagesComponent} from "./pages.component";
 
 import {DeviceMgmtModule} from "./device-mgmt/device-mgmt.module";
+import {AuthComponent} from "./auth/auth.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'pages', pathMatch: 'full'},
+  {path: '', redirectTo: 'gyauth', pathMatch: 'full'},
+  {path:'gyauth',loadChildren:'./auth/auth.module#AuthModule'},
   {
     path: 'pages',
     component: PagesComponent,
