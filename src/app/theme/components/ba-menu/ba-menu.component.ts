@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ba-menu',
@@ -9,6 +9,7 @@ export class BaMenuComponent implements OnInit {
 
   constructor() { }
 
+  @Input() isCollapsed:any; // 折叠菜单用的标记
   ngOnInit() {
   }
 

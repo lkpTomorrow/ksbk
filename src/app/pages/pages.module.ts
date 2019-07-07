@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
+import {NgaModule} from "../theme/nga.module";
+import {NgZorroAntdModule} from "ng-zorro-antd";
 
 
 @NgModule({
@@ -10,6 +12,7 @@ import { PagesComponent } from './pages.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
+    NgaModule,
   ]
 })
 export class PagesModule { }

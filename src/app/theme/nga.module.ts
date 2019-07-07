@@ -11,7 +11,8 @@ import {NgZorroAntdModule} from "ng-zorro-antd";
     BaMenuComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgZorroAntdModule,
   ],
   exports:[
     BaMenuComponent,
