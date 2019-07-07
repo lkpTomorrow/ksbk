@@ -24,7 +24,7 @@ export class BaMenuComponent implements OnInit {
         {path:'/pages/device-mgmt/over-view',name:'设备总览',hasChildren:false},
         {path:'',name:'三级菜单',hasChildren:true,
           children:[
-            {path:'pages/device-mgmt/alarm-query',name:'报警查询',hasChildren:false},
+            {path:'/pages/device-mgmt/alarm-query',name:'报警查询',hasChildren:false},
             {path:'/pages/device-mgmt/ks-test',name:'测试页面',hasChildren:false},
           ]
         },

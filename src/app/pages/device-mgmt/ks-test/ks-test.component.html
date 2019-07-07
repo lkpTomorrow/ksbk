@@ -1,3 +1,35 @@
-<p>
-  ks-test works!
-</p>
+<!--测试使用-->
+<h4>测试button</h4>
+<div>
+  <button nz-button nzType="primary">Primary</button>
+  <button nz-button nzType="default">Default</button>
+  <button nz-button nzType="dashed">Dashed</button>
+  <button nz-button nzType="danger">Danger</button>
+</div>
+<h4>测试icon</h4>
+<div>
+  <i nz-icon type="step-backward" theme="outline"></i>
+  <i nz-icon type="fast-forward" theme="outline"></i>
+  <i nz-icon type="edit" theme="outline"></i>
+</div>
+<h4>测试modal，组件的语言</h4>
+<div>
+  <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button>
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <p>Content one</p>
+    <p>Content two</p>
+    <p>Content three</p>
+  </nz-modal>
+</div>
+<h4>切换组件的默认语言</h4>
+<div>
+  <button nz-button (click)="changeLang('zh')">中文</button>
+  <button nz-button (click)="changeLang('en')">英文</button>
+</div>
+<h4>路由跳转</h4>
+<div>
+  <button nz-button routerLink="/pages/device-mgmt/over-view">跳转OverView</button>
+  <button nz-button routerLink="/pages/basic-mgmt/user-mgmt">跳转UserMgmt</button>
+  <li  routerLink="/pages/basic-mgmt/role-mgmt">跳转路由RoleMgmt</li>
+  routerlink="/pages/basic-mgmt/role-mgmt"
+</div>
