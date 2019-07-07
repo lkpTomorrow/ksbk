@@ -8,7 +8,10 @@ import {NgZorroAntdModule} from "ng-zorro-antd";
 
 
 @NgModule({
-  declarations: [PagesComponent,],
+  declarations: [
+    PagesComponent,
+
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,

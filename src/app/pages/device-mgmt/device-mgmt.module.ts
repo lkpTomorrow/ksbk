@@ -9,9 +9,15 @@ import {AlarmQueryComponent} from './alarm-query/alarm-query.component';
 import {FormsModule} from "@angular/forms";
 import {NgZorroAntdModule} from "ng-zorro-antd";
 import {NgaModule} from "../../theme/nga.module";
+import { KsTestComponent } from './ks-test/ks-test.component';
 
 @NgModule({
-  declarations: [DeviceMgmtComponent, DeviceListComponent, OverViewComponent, AlarmQueryComponent],
+  declarations: [
+    DeviceMgmtComponent,
+    DeviceListComponent,
+    OverViewComponent,
+    AlarmQueryComponent,
+    KsTestComponent],
   imports: [
     CommonModule,
     DeviceMgmtRoutingModule,

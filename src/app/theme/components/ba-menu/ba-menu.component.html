@@ -1,38 +1,44 @@
 <div class="ba-menu">
   <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
-    <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''">
-          <span title>
-            <i nz-icon type="mail"></i>
-            <span>Navigation One</span>
+    <ng-container *ngFor="let item of menus">
+
+      <li *ngIf="item.hasChildren" nz-submenu>
+        <span title>
+            <i nz-icon type="{{item.icon}}"></i>
+            <span>{{item.name}}</span>
           </span>
-    </li>
-    <li nz-submenu>
-          <span title>
-            <i nz-icon type="appstore"></i>
-            <span>Navigation Two</span>
+        <ul>
+          <ng-container *ngFor="let item2 of item.children">
+            <!--是二级菜单，没有三级菜单-->
+            <li nz-menu-item *ngIf="!item2.hasChildren"
+            (click)="goToPath(item2)">
+              {{item2.name}}
+            </li>
+            <!--是二级菜单，但是有三级菜单-->
+            <li *ngIf="item2.hasChildren" nz-submenu>
+              <span title>{{item2.name}}</span>
+              <ul>
+                <li nz-menu-item *ngFor="let item3 of item2.children"
+                (click)="goToPath(item3)">
+                  {{item3.name}}
+                </li>
+              </ul>
+            </li>
+          </ng-container>
+
+        </ul>
+      </li>
+
+      <li *ngIf="!item.hasChildren" nz-menu-item nz-tooltip
+          nzPlacement="right" [nzTitle]="isCollapsed ? item.name : ''"
+      (click)="goToPath(item)">
+        <span title>
+            <i nz-icon type="{{item.icon}}"></i>
+            <span>{{item.name}}</span>
           </span>
-      <ul>
-        <li nz-menu-item>Option 5</li>
-        <li nz-menu-item>Option 6</li>
-        <li nz-submenu>
-          <span title>Submenu</span>
-          <ul>
-            <li nz-menu-item>Option 7</li>
-            <li nz-menu-item>Option 8</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li nz-submenu>
-          <span title>
-            <i nz-icon type="setting"></i>
-            <span>Navigation Three</span>
-          </span>
-      <ul>
-        <li nz-menu-item>Option 9</li>
-        <li nz-menu-item>Option 10</li>
-        <li nz-menu-item>Option 11</li>
-      </ul>
-    </li>
+      </li>
+    </ng-container>
+
+
   </ul>
 </div>
