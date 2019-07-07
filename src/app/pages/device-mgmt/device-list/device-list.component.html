@@ -1,10 +1,110 @@
 <div class="devcie-list">
-  <p>
-    device-list works!
-  </p>
-  <div>
-    <button nz-button>测试按钮</button>
-    <input type="text" [ngModel]="testInput">
+  <div class="breadcrumb">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        设备管理
+      </nz-breadcrumb-item>
+
+      <nz-breadcrumb-item>
+        设备列表
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
   </div>
+  <div class="search-contanier">
+    <div nz-row>
+      <!--设备名称 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">设备名称：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <input nz-input placeholder="请输入" [(ngModel)]="deviceName" />
+          </div>
+        </div>
+      </div>
+      <!--设备名称 end-->
+      <!--设备编号 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">设备编号：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <input nz-input placeholder="请输入" [(ngModel)]="deviceCode" />
+          </div>
+        </div>
+      </div>
+      <!--设备编号 end-->
+      <!--设备型号 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">设备型号：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <nz-cascader [nzOptions]="deviceTypes" [(ngModel)]="selectedDeviceType"
+                         [nzPlaceHolder]="'请选择'"
+                         (ngModelChange)="deviceTypeChange($event)">
+            </nz-cascader>
+          </div>
+        </div>
+      </div>
+      <!--设备型号 end-->
+      <!--在线状态 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">在线状态：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <nz-select style="width: 100%;" [(ngModel)]="selectedOnLineStatus"
+                       nzAllowClear nzPlaceHolder="请选择">
+              <nz-option *ngFor="let item of onLineStatus"
+                         [nzValue]="item.value" [nzLabel]="item.name"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+      </div>
+      <!--在线状态 end-->
+      <!--开始日期 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">开始日期：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <nz-date-picker [(ngModel)]="StartDate"
+                            (ngModelChange)="onChange($event)"></nz-date-picker>
+          </div>
+        </div>
+      </div>
+      <!--开始日期 end-->
+      <!--结束日期 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="6" class="ks-label text-overflow">结束日期：</div>
+          <div nz-col [nzSpan]="18" class="ks-form">
+            <nz-date-picker [(ngModel)]="endDate"
+                            (ngModelChange)="onChange($event)"></nz-date-picker>
+          </div>
+        </div>
+      </div>
+      <!--结束日期 end-->
+      <!--联动日期 start-->
+      <div nz-col [nzSpan]="16">
+        <div nz-row class="ks-item">
+          <div nz-col [nzSpan]="3" class="ks-label text-overflow">联动日期：</div>
+          <div nz-col [nzSpan]="21" class="ks-form">
+            <nz-range-picker [(ngModel)]="rangeDate"
+                             (ngModelChange)="onChange($event)" nzShowTime></nz-range-picker>
+          </div>
+        </div>
+      </div>
+      <!--联动日期 end-->
+      <!--搜索和重置 start-->
+      <div nz-col [nzSpan]="8">
+        <div nz-row class="ks-operation">
+          <button class="search-btn" nzType="primary" nz-button (click)="search(true)">搜索</button>
+          <button class="reset-btn" nz-button (click)="reset()">重置</button>
+        </div>
+      </div>
+      <!--搜索和重置 end-->
+    </div>
+  </div>
+  <div class="table-container">
+
+  </div>
+
 </div>
 

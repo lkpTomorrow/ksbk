@@ -7,3 +7,26 @@ html,body{
   width: 100%;
   height: 100%;
 }
+/*    "..."的样式   */
+.text-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*   滚动条的样式    */
+/*滚动条的样式*/
+/*滚动条的w和h*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+/*滚动条的颜色*/
+::-webkit-scrollbar-thumb {
+  background: #8265d9;
+  cursor: pointer;
+}
+/*滚动条的背景颜色*/
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
