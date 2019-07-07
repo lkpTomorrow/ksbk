@@ -1,8 +1,24 @@
-<p>
-  pages works!
-</p>
-<div>
-  <button routerLink="/pages/device-mgmt/device-list">跳转</button>
-  <button routerLink="/pages/basic-mgmt/user-mgmt">跳转</button>
+<div class="pages-container">
+  <!--左侧菜单-->
+  <div class="pages-left" [ngClass]="{'is-collapsed':isCollapsed}">
+    <div class="menu-top">
+
+    </div>
+    <div class="menu-content">
+
+    </div>
+    <div class="menu-bottom">
+      Powered by ksbk
+    </div>
+  </div>
+  <!--右侧部分-->
+  <div class="pages-right">
+    <div class="right-top">
+      <button nz-button (click)="menuFold();">菜单折叠</button>
+    </div>
+    <div class="right-main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>
+

@@ -12,4 +12,12 @@ export class PagesComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * 折叠菜单
+   */
+  public isCollapsed = false;
+  menuFold() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
 }
