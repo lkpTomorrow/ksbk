@@ -19,7 +19,7 @@ export class BaMenuComponent implements OnInit {
     console.log("传递进来的menus：", this.menus);
   }
 
-  menus = [
+  /*menus = [
     {path: '/pages/dashboard/index', name: '首页', hasChildren: false, icon: 'pushpin'},
     {
       path: '', name: '设备管理', hasChildren: true, icon: 'sound',
@@ -43,7 +43,7 @@ export class BaMenuComponent implements OnInit {
         {path: '/pages/basic-mgmt/user-mgmt', name: '用户管理', hasChildren: false},
       ]
     },
-  ]
+  ]*/
 
   goToPath(item) {
     this.router.navigate([item.path]);
