@@ -43,11 +43,10 @@ export class LoginComponent implements OnInit {
       userName:this.encryptByDES(userName),
       passWord:this.encryptByDES(password),
     };
-    console.log(params);
-    console.log(params.userName == 'KWSS3vEB2hE=');
-    console.log(params.passWord=='F8O68fsPPus=');
+    // admin  l4UKxdg7ziE=
+    // 123  GRWC2J0edNE=
     // 调用接口，但是目前没有，只能用来假数据了。
-    if(params.userName=='KWSS3vEB2hE='&&params.passWord=='F8O68fsPPus='){
+    if(params.userName=='l4UKxdg7ziE='&&params.passWord=='GRWC2J0edNE='){
       this.router.navigate(['/pages/dashboard/index']);
     }else{
       this.nzMessageService.error("密码错误");
@@ -64,7 +63,7 @@ export class LoginComponent implements OnInit {
    * @returns {any}
    */
   encryptByDES(message) {
-    var keyHex = CryptoJS.enc.Utf8.parse("key123456");
+    var keyHex = CryptoJS.enc.Utf8.parse("cf410f8f9a4a42cc7a7f48fc4134e8f9");
     var encrypted = CryptoJS.TripleDES.encrypt(message, keyHex, {
       iv: CryptoJS.enc.Utf8.parse('7254567-'),  // 好像没用
       mode: CryptoJS.mode.ECB,
@@ -72,4 +71,5 @@ export class LoginComponent implements OnInit {
     });
     return encrypted.toString();
   }
+
 }
