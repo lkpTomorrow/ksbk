@@ -9,9 +9,10 @@ declare var Base64: any;
 
 // 使用： new Base64().encode('abc');
 */
-
-import {Base64} from 'js-base64';
 // 使用：Base64.encode('abc');
+import {Base64} from 'js-base64';
+import {AppCommon} from "../common/app-common";
+
 
 @Injectable({
   providedIn: 'root'
@@ -118,7 +119,7 @@ export class BaseServiceService {
 
 // logout
   logout() {
-    // AppCommon.userInfo = null;
+    AppCommon.userInfo = null;
     this.router.navigate(['gyauth/login']); // 401的时候，cookie里面的信息自动已经清除了。
 
   }

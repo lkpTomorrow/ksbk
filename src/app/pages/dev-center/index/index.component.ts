@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DevCenterService} from "../dev-center.service";
+import {AppCommon} from "../../../common/app-common";
 
 @Component({
   selector: 'app-index',
@@ -13,7 +14,7 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    AppCommon.userInfo={name:1,age:2};
   }
 
 }
