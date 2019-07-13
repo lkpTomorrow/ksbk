@@ -16,6 +16,8 @@ const routes: Routes = [
       {path:'dashboard',loadChildren:'./dashboard/dashboard.module#DashboardModule'},
       {path: 'device-mgmt', loadChildren: './device-mgmt/device-mgmt.module#DeviceMgmtModule'},
       {path: 'basic-mgmt', loadChildren: './basic-mgmt/basic-mgmt.module#BasicMgmtModule'},
+      {path: 'dev-center', loadChildren: './dev-center/dev-center.module#DevCenterModule'},
+
     ]
   }
 ];

@@ -2,23 +2,24 @@
   <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
     <ng-container *ngFor="let item of menus">
 
-      <li *ngIf="item.hasChildren" nz-submenu>
+      <!--二级菜单：-->
+      <li *ngIf="!item.path&&item.type==0" nz-submenu>
         <span title>
-            <i nz-icon type="{{item.icon}}"></i>
+            <i nz-icon type="{{item.iconCls}}"></i>
             <span>{{item.name}}</span>
           </span>
         <ul>
-          <ng-container *ngFor="let item2 of item.children">
+          <ng-container *ngFor="let item2 of item.childs">
             <!--是二级菜单，没有三级菜单-->
-            <li nz-menu-item *ngIf="!item2.hasChildren"
+            <li nz-menu-item *ngIf="item2.path&&item2.type==0"
             (click)="goToPath(item2)">
               {{item2.name}}
             </li>
             <!--是二级菜单，但是有三级菜单-->
-            <li *ngIf="item2.hasChildren" nz-submenu>
+            <li *ngIf="!item2.path&&item2.type==0" nz-submenu>
               <span title>{{item2.name}}</span>
               <ul>
-                <li nz-menu-item *ngFor="let item3 of item2.children"
+                <li nz-menu-item *ngFor="let item3 of item2.childs"
                 (click)="goToPath(item3)">
                   {{item3.name}}
                 </li>
@@ -29,11 +30,12 @@
         </ul>
       </li>
 
-      <li *ngIf="!item.hasChildren" nz-menu-item nz-tooltip
+      <!--只有一级菜单：-->
+      <li *ngIf="item.path&&item.type==0" nz-menu-item nz-tooltip
           nzPlacement="right" [nzTitle]="isCollapsed ? item.name : ''"
       (click)="goToPath(item)">
         <span title>
-            <i nz-icon type="{{item.icon}}"></i>
+            <i nz-icon type="{{item.iconCls}}"></i>
             <span>{{item.name}}</span>
           </span>
       </li>
